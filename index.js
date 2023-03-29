@@ -10,8 +10,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.listen(process.env.PORT, () => {
-    console.log(`Servidor rodando na porta ${process.env.PORT}`);
+const port = process.env.PORT || 3001;
+
+app.listen(port, () => {
+    console.log(`Servidor rodando na porta ${port}`);
 });
 
 app.use("/", userRoutes)

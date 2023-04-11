@@ -1,14 +1,14 @@
 import { addUserController, getUsersController, loginUserController } from "../userController";
 import { addUserService, getUsersService, loginUserService } from "../../services/userService";
 
-jest.mock("../../services/userService"); // mock do módulo userService
+jest.mock("../../services/userService");
 
 describe("User Controller", () => {
     describe("getUsersController", () => {
         test("should return a list of users", async () => {
             const mockUsers = [{ id: 1, name: "John Doe", email: "john.doe@example.com" }, { id: 2, name: "Jane Doe", email: "jane.doe@example.com" }];
             const mockData = { status: 200, data: mockUsers };
-            getUsersService.mockResolvedValueOnce(mockData); // mock da função getUsersService
+            getUsersService.mockResolvedValueOnce(mockData);
 
             const mockReq = {};
             const mockRes = {
@@ -28,7 +28,7 @@ describe("User Controller", () => {
         test("should add a new user and return the user's data", async () => {
             const mockUser = { id: 1, name: "John Doe", email: "john.doe@example.com" };
             const mockData = { status: 200, data: mockUser };
-            addUserService.mockResolvedValueOnce(mockData); // mock da função addUserService
+            addUserService.mockResolvedValueOnce(mockData);
 
             const mockReq = {
                 body: {
@@ -54,7 +54,7 @@ describe("User Controller", () => {
         test("should authenticate a user and return the user's data", async () => {
             const mockUser = { id: 1, name: "John Doe", email: "john.doe@example.com" };
             const mockData = { status: 200, data: mockUser };
-            loginUserService.mockResolvedValueOnce(mockData); // mock da função loginUserService
+            loginUserService.mockResolvedValueOnce(mockData);
 
             const mockReq = {
                 body: {

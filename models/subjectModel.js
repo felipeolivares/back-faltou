@@ -105,6 +105,7 @@ export const deleteAllByIdUserModel = async (idusers) => {
 
     return new Promise((resolve, reject) => {
         db.query(qDelete, [idusers], (err, data) => {
+
             if (err) {
                 reject(err);
             } else {
